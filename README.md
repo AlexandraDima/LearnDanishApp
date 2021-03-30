@@ -1,4 +1,4 @@
-# learn-danish
+# learn-danish - application
 
 ## Project setup
 ```
