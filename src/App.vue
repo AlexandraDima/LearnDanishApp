@@ -1,72 +1,37 @@
 <template>
   <div id="app">
-        <component :is="currentMenu" :right="side === 'right' ? true: false">
-            <router-link to="/About"><i class="fa fa-fw fa-star-o"></i>About</router-link>
-            <a href="#">
-                <i class="fa fa-fw fa-bell-o"></i>
-                <span>Alerts</span>
-            </a>
-            <a href="#">
-                <i class="fa fa-fw fa-envelope-o"></i>
-                <span>Messages</span>
-            </a>
-            <a href="#">
-                <i class="fa fa-fw fa-comment-o"></i>
-                <span>Comments</span>
-            </a>
-            <a href="#">
-                <i class="fa fa-fw fa-bar-chart-o"></i>
-                <span>Analytics</span>
-            </a>
-            <a href="#">
-                <i class="fa fa-fw fa-newspaper-o"></i>
-                <span>Reading</span>
-            </a>
-        </component>
+        <SidebarMenu :right="side === 'right' ? true: false">
+            <router-link to="/"><i class="fa fa-fw fa-star-o"></i>Home</router-link>
+            <router-link to="/about"><i class="fa fa-fw fa-star-o"></i>About</router-link>
+            <div>
+              <b-dropdown split text="Everyday language" class="m-2">
+                <b-dropdown-item>Health and Body</b-dropdown-item>
+                <b-dropdown-item href="#">Food and Drink</b-dropdown-item>
+                <b-dropdown-item href="#">Clothes</b-dropdown-item>
+              </b-dropdown>
+            </div>
+        </SidebarMenu>
         <main id="page-wrap">
-            <h2 class="description">An off-canvas sidebar vue component with a collection of effects and styles using CSS transitions and SVG path animations.</h2>
-
-            <nav class="demo-buttons">
-                <span v-for="(menu, index) in menus" :key="index">
-                    <span>
-                        <a :class="currentMenu === menu.buttonText.replace(/ +/g, '').toLowerCase() ? {currentDemo:true}: {currentDemo:false}" @click="changeMenu(menu.buttonText)">
-                            {{menu.buttonText}}
-                        </a>
-                    </span>
-                </span>
-            </nav>
+            <router-view />
         </main>
-      <router-view />
+
   </div>
 </template>
 
 <script>
-import ScaleDown from './components/Menu/ScaleDown';
 import SidebarMenu from './components/Menu/SidebarMenu';
 
 export default {
   name: 'App',
   components: {
-    ScaleDown,
     SidebarMenu
   },
   data() {
     return {
-      menus: {
-        scaleDown: { buttonText: 'Scale Down' }
-      },
-      side: 'left',
-      currentMenu: 'ScaleDown'
+      side: 'left'
     };
   },
   methods: {
-      changeMenu(menu) {
-        this.currentMenu = menu.replace(/ +/g, '').toLowerCase();
-        return this.currentMenu;
-      },
-      changeSide(side) {
-        this.side = side;
-      }
   }
 }
 </script>
@@ -236,7 +201,7 @@ export default {
     //
     // Mixins
     //
-    .menu-1 {
+/*     .menu-1 {
       .bm-cross {
         background: #bdc3c7;
       }
@@ -246,8 +211,8 @@ export default {
         font-size: 1.15em;
       }
     }
-
-    .menu-2 {
+ */
+ /*    .menu-2 {
       .bm-cross {
         background: #999;
       }
@@ -265,9 +230,9 @@ export default {
         vertical-align: middle;
         color: #282a35;
       }
-    }
+    } */
 
-    .menu-3 {
+/*     .menu-3 {
       .bm-cross {
         background: #888;
       }
@@ -286,9 +251,9 @@ export default {
         letter-spacing: 1px;
         font-size: 0.75em;
       }
-    }
+    } */
 
-    .menu-4 {
+/*     .menu-4 {
       .bm-cross {
         background: #888;
       }
@@ -327,5 +292,5 @@ export default {
           color: #b8b7ad;
         }
       }
-    }
+    } */
 </style>
