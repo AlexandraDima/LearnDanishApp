@@ -1,30 +1,34 @@
 <template>
   <div id="app">
-        <SidebarMenu :right="side === 'right' ? true: false">
-            <router-link to="/"><i class="fa fa-fw fa-star-o"></i>Home</router-link>
-            <router-link to="/about"><i class="fa fa-fw fa-star-o"></i>About</router-link>
-            <div>
-              <b-dropdown split text="Everyday language" class="m-2">
-                <b-dropdown-item>Health and Body</b-dropdown-item>
-                <b-dropdown-item href="#">Food and Drink</b-dropdown-item>
-                <b-dropdown-item href="#">Clothes</b-dropdown-item>
-              </b-dropdown>
-            </div>
-        </SidebarMenu>
-        <main id="page-wrap">
-            <router-view />
-        </main>
-
+<!--     <SidebarMenu :right="side === 'right' ? true: false">
+      <router-link to="/"><i class="fa fa-fw fa-star-o"></i>Home</router-link>
+      <router-link to="/about"><i class="fa fa-fw fa-star-o"></i>About</router-link>
+      <div>
+        <b-dropdown split text="Everyday language" class="m-2">
+          <b-dropdown-item>Health and Body</b-dropdown-item>
+          <b-dropdown-item href="#">Food and Drink</b-dropdown-item>
+          <b-dropdown-item href="#">Clothes</b-dropdown-item>
+        </b-dropdown>
+      </div>
+    </SidebarMenu>
+    <main id="page-wrap">
+      <router-view />
+    </main>  -->
+    <TopMenu />
+  <b-container>
+     <router-view />
+  </b-container>
+  
+ 
   </div>
 </template>
 
 <script>
-import SidebarMenu from './components/Menu/SidebarMenu';
-
+import TopMenu from './components/TopMenu/TopMenu'
 export default {
   name: 'App',
   components: {
-    SidebarMenu
+    TopMenu
   },
   data() {
     return {
@@ -32,6 +36,7 @@ export default {
     };
   },
   methods: {
+   
   }
 }
 </script>
@@ -50,7 +55,7 @@ export default {
 
     body {
       height: 100%;
-      color: #fffce1;
+      color: black;
       font-family: 'Raleway', Arial, sans-serif;
       margin: 0px;
     }
@@ -59,21 +64,11 @@ export default {
       height: 100%;
     }
 
-    a {
-      color: #4e4a46;
-      text-decoration: none;
-
-      :hover,
-      :focus {
-        color: #c94e50;
-      }
-    }
-
     main {
       height: 100%;
       padding: 3em 2em;
       text-align: center;
-      background: #b4bad2;
+      background: white;
       overflow: auto;
     }
 
