@@ -16,7 +16,7 @@
     </main>  -->
     <TopMenu />
     <b-container>
-     <router-view />
+     <router-view :key="$route.path"/>
     </b-container>
   </div>
 </template>

@@ -2,7 +2,11 @@
 <div class="full-width" sticky="true">
     <b-container>
         <b-navbar toggleable="lg">
-            <b-navbar-brand href="#">Learn Danish</b-navbar-brand>
+            <b-navbar-brand href="#">
+                <router-link to="/">
+                Learn Danish
+                </router-link>
+            </b-navbar-brand>
 
             <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
@@ -13,14 +17,18 @@
                         <b-form-input size="sm" class="mr-sm-2" placeholder="Search"></b-form-input>
                     </b-nav-form>
                 <b-nav-item-dropdown text="Categories" right class="button_categories">
-                    <b-dropdown-item v-for="category in categories" :key="category.id">
-                        <b-badge variant="primary">{{category.name}}</b-badge>
+                    <b-dropdown-item v-for="item in categories" :key="item.id">
+                        <b-badge variant="primary">
+                            <router-link
+                            :to="{
+                                name: 'Infographics',
+                                params: { category: item.category}
+                            }"
+                            >
+                                {{item.category}}
+                            </router-link>
+                        </b-badge>
                     </b-dropdown-item>
-                   <!--  <b-dropdown-item href="#">
-                        <router-link to="/infographics">
-                            <b-badge variant="success">Everyday language</b-badge>
-                        </router-link>
-                    </b-dropdown-item> -->
                 </b-nav-item-dropdown>
             </b-navbar-nav>
             </b-collapse>
@@ -33,14 +41,10 @@
 import categoriesData from '../../data.json'
 export default {
   name: 'TopMenu',
-  props: {
-    
-  },
-  computed: {
-      categories: function() {
-          let categories = categoriesData.categories;
-          return categories;
-      }
+  data() {
+    return {
+      categories: categoriesData.infographics
+    };
   }
 }
 </script>

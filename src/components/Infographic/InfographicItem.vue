@@ -10,10 +10,6 @@
     </div>
     </div>
   </div>
-  <!--  <b-col lg="4" class="infographicItem_container">
-    <img :src="require(`@/assets/Infographics/${imagePath}`)" />
-    <p>{{imageName}}</p>
-  </b-col> -->
 </template>
 
 <script>
@@ -27,7 +23,6 @@ export default {
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 .infographicItem_container {
     display: inline-block;

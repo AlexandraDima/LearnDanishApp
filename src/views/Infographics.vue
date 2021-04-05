@@ -8,13 +8,15 @@
              <span :class="getButtonClass"><strong>{{ category }}</strong></span>
         </div>
        
-        <div class="infographics_container">
-            <InfographicItem ref="infographicItem" v-for="(item, index) in filterByCategory" 
-                        :key="index" 
+        <div class="infographics_container" >
+            <div v-for="(item) in infographics" 
+                        :key="item.id">
+             <InfographicItem ref="infographicItem" 
                         :imagePath="item.url"
                         :imageName="item.tags"
                         :imageLikes="item.likes"
-                    />
+             />
+            </div>
         </div>
     </div>
 </template>
@@ -30,13 +32,14 @@ export default {
     },
     data(){
         return {
-           category: ''
+           category: this.$route.params.category
         }
     },
     computed: {
         infographics: function() {
             let infographicsList = infographicsData.infographics;
-            return infographicsList;
+            console.log(this.category);
+            return infographicsList.filter(item => item.category === this.category);
         },
         categories: function() {
             let categoriesList = infographicsData.categories;
