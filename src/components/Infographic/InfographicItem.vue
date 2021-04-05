@@ -1,7 +1,14 @@
 <template>
   <div class="infographicItem_container">
     <img :src="require(`@/assets/Infographics/${imagePath}`)" />
+    <div class="row">
+    <div class="col-lg-6">
     <p>{{imageName}}</p>
+    </div>
+    <div class="col-lg-6"> 
+    <span>Likes: {{imageLikes}}</span>
+    </div>
+    </div>
   </div>
   <!--  <b-col lg="4" class="infographicItem_container">
     <img :src="require(`@/assets/Infographics/${imagePath}`)" />
@@ -14,7 +21,8 @@ export default {
   name: 'InfographicItem',
   props: {
     imagePath: String,
-    imageName: String
+    imageName: String,
+    imageLikes: Number
   }
 }
 </script>

@@ -1,22 +1,27 @@
 <template>
-<!--   <b-row class="infographics__container pt-4">
-        <InfographicItem ref="infographicItem" v-for="(item, index) in infographics" 
-            :key="index" 
-            :imagePath="item.url"
-            :imageName="item.name"
-        />
-  </b-row> -->
-    <div class="infographics_container">
-        <InfographicItem ref="infographicItem" v-for="(item, index) in infographics" 
-                    :key="index" 
-                    :imagePath="item.url"
-                    :imageName="item.name"
-                />
+    <div>
+        <div class="row col-lg-12 mt-3">
+            <select class="col-lg-6 mx-auto" v-model="category">
+            <option v-for="item in categories" 
+                    :key="item.id" :value="`${item.name}`">{{item.name}}</option>
+            </select> 
+             <span :class="getButtonClass"><strong>{{ category }}</strong></span>
+        </div>
+       
+        <div class="infographics_container">
+            <InfographicItem ref="infographicItem" v-for="(item, index) in filterByCategory" 
+                        :key="index" 
+                        :imagePath="item.url"
+                        :imageName="item.tags"
+                        :imageLikes="item.likes"
+                    />
+        </div>
     </div>
 </template>
 
 <script>
 import InfographicItem from '../components/Infographic/InfographicItem'
+import infographicsData from '../data.json'
 
 export default {
     name: 'Infographics',
@@ -25,46 +30,34 @@ export default {
     },
     data(){
         return {
-            infographics : [
-                {
-                    url : 'Adverbs2.svg',
-                    name : 'Adverbs',
-                },
-                {
-                    url : 'BodyHealth.svg',
-                    name : 'Body parths'
-                },
-                {
-                    url : 'FixedExpression2.svg',
-                    name : 'Fixed expressions'
-                },
-                {
-                    url : 'Inversion2.svg',
-                    name : 'Inversion'
-                },
-                {
-                    url : 'Numbers2.svg',
-                    name : 'Numbers'
-                },
-                {
-                    url : 'Adverbs2.svg',
-                    name : 'Adverbs',
-                },
-                {
-                    url : 'BodyHealth.svg',
-                    name : 'Body parths'
-                },
-                {
-                    url : 'Adverbs2.svg',
-                    name : 'Adverbs',
-                },
-                  {
-                    url : 'Numbers2.svg',
-                    name : 'Numbers'
-                },
-            ]
+           category: ''
         }
     },
+    computed: {
+        infographics: function() {
+            let infographicsList = infographicsData.infographics;
+            return infographicsList;
+        },
+        categories: function() {
+            let categoriesList = infographicsData.categories;
+            return categoriesList;
+        },
+        filterByCategory: function(){
+            return this.infographics.filter(item => !item.category.indexOf(this.category))
+        },
+        getButtonClass: function() {
+            let className = '';
+            switch(this.category) {
+                case 'vocabulary': 
+                    className = 'red';
+                    break;
+                case 'grammar':
+                    className = 'yellow';
+                    break;
+            }
+            return className;
+        }
+    }
 }
 </script>
 
@@ -93,5 +86,15 @@ export default {
         -webkit-column-count: 3;
         column-count: 3;
     }
+}
+.colorSelect {
+    background-color: bisque;
+}
+.red {
+    background-color: red;
+}
+
+.yellow{
+    background-color: yellow;
 }
 </style>

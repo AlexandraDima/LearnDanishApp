@@ -12,23 +12,15 @@
                     <b-nav-form>
                         <b-form-input size="sm" class="mr-sm-2" placeholder="Search"></b-form-input>
                     </b-nav-form>
-                    <b-nav-item href="#">
-                        <router-link to="/about"><i class="fa fa-fw fa-star-o"></i>About</router-link>
-                    </b-nav-item>
                 <b-nav-item-dropdown text="Categories" right class="button_categories">
-                    <b-dropdown-item>
-                        <router-link to="/about">
-                        <b-badge variant="primary">Grammar</b-badge>
-                        </router-link>
+                    <b-dropdown-item v-for="category in categories" :key="category.id">
+                        <b-badge variant="primary">{{category.name}}</b-badge>
                     </b-dropdown-item>
-                    <b-dropdown-item href="#">
+                   <!--  <b-dropdown-item href="#">
                         <router-link to="/infographics">
                             <b-badge variant="success">Everyday language</b-badge>
                         </router-link>
-                    </b-dropdown-item>
-                    <b-dropdown-item href="#">
-                        <b-badge variant="warning">Danish video</b-badge>
-                    </b-dropdown-item>
+                    </b-dropdown-item> -->
                 </b-nav-item-dropdown>
             </b-navbar-nav>
             </b-collapse>
@@ -38,10 +30,17 @@
 </template>
 
 <script>
+import categoriesData from '../../data.json'
 export default {
   name: 'TopMenu',
   props: {
-    msg: String
+    
+  },
+  computed: {
+      categories: function() {
+          let categories = categoriesData.categories;
+          return categories;
+      }
   }
 }
 </script>

@@ -15,16 +15,15 @@
       <router-view />
     </main>  -->
     <TopMenu />
-  <b-container>
+    <b-container>
      <router-view />
-  </b-container>
-  
- 
+    </b-container>
   </div>
 </template>
 
 <script>
 import TopMenu from './components/TopMenu/TopMenu'
+
 export default {
   name: 'App',
   components: {

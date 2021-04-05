@@ -1,0 +1,97 @@
+{
+    "infographics": [
+        {
+            "id": 1,
+            "title": "Body parts",
+            "url": "BodyHealth.svg",
+            "category": "vocabulary",
+            "tags": "body",
+            "likes": 0,
+            "downloads": 0,
+            "comments": ["This is nice"]
+        },
+        {
+            "id": 2,
+            "title": "Adverb questions",
+            "url": "Adverbs2.svg",
+            "category": "grammar",
+            "tags": "adverb",
+            "likes": 0,
+            "downloads": 0,
+            "comments": ["This is nice"]
+        },
+        {
+            "id": 3,
+            "title": "Fixed expressions",
+            "url": "FixedExpression2.svg",
+            "category": "speaking",
+            "tags": "fixed-expressions",
+            "likes": 0,
+            "downloads": 0,
+            "comments": ["This is nice"]
+        },
+        {
+            "id": 4,
+            "title": "Inversion",
+            "url": "Inversion2.svg",
+            "category": "grammar",
+            "tags": "inversion",
+            "likes": 0,
+            "downloads": 0,
+            "comments": ["This is nice"]
+        },
+        {
+            "id": 5,
+            "title": "Numbers",
+            "url": "Numbers2.svg",
+            "category": "vocabulary",
+            "tags": "numbers",
+            "likes": 0,
+            "downloads": 0,
+            "comments": ["This is nice"]
+        }
+    ],
+    "categories": [
+        {
+            "id": 1,
+            "name": "vocabulary",
+            "tags": ["body", "numbers", "house", "health","family"]
+        },
+        {
+            "id": 2,
+            "name": "grammar",
+            "colorLabel": "blue",
+            "tags": ["inversion", "pronom", "noun", "verbs","adjectives"]
+        },
+        {
+            "id": 3,
+            "name": "writing",
+            "tags": ["PD3", "emails", "stories"]
+        },
+        {
+            "id": 4,
+            "name": "speaking",
+            "tags": ["at-restaurant", "at-supermarket", "at-bakery", "at-hairdresser", "travel", "introductions"]
+        },
+        {
+            "id": 5,
+            "name": "listening",
+            "tags": ["podcasts", "tv", "music"]
+        },
+        {
+            "id": 6,
+            "name": "reading",
+            "tags": ["books", "articles"]
+        },
+        {
+            "id": 7,
+            "name": "quotes",
+            "tags": ["life", "success"]
+        },
+        {
+            "id": 8,
+            "name": "did-you-know",
+            "tags": ["culture", "history", "geography"]
+        }
+    ]
+}
